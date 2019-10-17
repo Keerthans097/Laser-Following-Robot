@@ -1,0 +1,83 @@
+import RPi.GPIO as GPIO          
+from time import sleep
+
+in1 = 24
+in2 = 23
+int3 =22
+int4 =27
+en2 = 19
+en1 = 25
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(in1,GPIO.OUT)
+GPIO.setup(in2,GPIO.OUT)
+GPIO.setup(in3,GPIO.OUT)
+GPIO.setup(in4,GPIO.OUT)
+GPIO.setup(en2,GPIO.OUT)
+GPIO.setup(en1,GPIO.OUT)
+
+
+
+
+p1=GPIO.PWM(en1,1000)
+p1.start(25)
+p2=GPIO.PWM(en2,1000)
+p2.start(25)
+
+#forward
+p.ChangeDutyCycle(50)
+GPIO.output(int1, GPIO.HIGH)
+GPIO.output(int2, GPIO.LOW)
+sleep(5)
+
+
+#backward
+GPIO.output(int1, GPIO.LOW)
+GPIO.output(int2, GPIO.HIGH)
+sleep(5)
+
+
+GPIO.output(int1, GPIO.LOW)
+GPIO.output(int2, GPIO.LOW)
+GPIO.output(en1, GPIO.LOW)
+
+while(1):
+
+#forward
+p.ChangeDutyCycle(50)
+GPIO.output(int1, GPIO.HIGH)
+GPIO.output(int2, GPIO.LOW)
+sleep(5)
+
+
+#backward
+GPIO.output(int1, GPIO.LOW)
+GPIO.output(int2, GPIO.HIGH)
+sleep(5)
+
+
+GPIO.output(int1, GPIO.LOW)
+GPIO.output(int2, GPIO.LOW)
+GPIO.output(en1, GPIO.LOW)
+
+
+#forward
+p.ChangeDutyCycle(50)
+GPIO.output(int3, GPIO.HIGH)
+GPIO.output(int4, GPIO.LOW)
+sleep(5)
+
+
+#backward
+GPIO.output(int3, GPIO.LOW)
+GPIO.output(int4, GPIO.HIGH)
+sleep(5)
+
+
+GPIO.output(int3, GPIO.LOW)
+GPIO.output(int4, GPIO.LOW)
+GPIO.output(en2, GPIO.LOW)
+
+
+
+print('stopping motor')
